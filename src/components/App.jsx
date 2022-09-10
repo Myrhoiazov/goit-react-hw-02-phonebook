@@ -33,7 +33,7 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter, handleFilter } = this.state;
+    const { contacts, filter } = this.state;
 
 const visibleList = this.handleFilter()
 
