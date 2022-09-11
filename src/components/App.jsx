@@ -27,15 +27,14 @@ export class App extends Component {
   handleFilter = () => {
     const filterNormalize = this.state.filter.toLowerCase();
 
-  return this.state.contacts.filter(user =>
-        user.name.toLowerCase().includes(filterNormalize)
-      )
+    return this.state.contacts.filter(user =>
+      user.name.toLowerCase().includes(filterNormalize)
+    );
   };
 
   render() {
     const { contacts, filter } = this.state;
-
-const visibleList = this.handleFilter()
+    const visibleList = this.handleFilter();
 
     return (
       <Container>

@@ -1,7 +1,8 @@
 import s from '../Contacts/ContactList.module.css';
+import PropTypes from 'prop-types';
 const shortid = require('shortid');
 
-const ContactList = ({ contacts, onDelete}) => {
+const ContactList = ({ contacts, onDelete }) => {
   if (contacts.length === 0) {
     return;
   }
@@ -27,4 +28,15 @@ const ContactList = ({ contacts, onDelete}) => {
     </div>
   );
 };
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  onDelete: PropTypes.func,
+};
+
 export default ContactList;

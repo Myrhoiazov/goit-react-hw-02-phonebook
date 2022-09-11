@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import s from '../Filter/Filter.module.css';
+import PropTypes from 'prop-types';
 
 class FilterList extends Component {
 
@@ -29,6 +30,12 @@ class FilterList extends Component {
       </div>
     );
   }
+}
+
+FilterList.propTypes={
+  filter: PropTypes.string.isRequired,
+  contacts: PropTypes.array.isRequired,
+  onFindContacts: PropTypes.func.isRequired,
 }
 
 export default FilterList;
