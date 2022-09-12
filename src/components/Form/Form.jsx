@@ -7,7 +7,7 @@ class Form extends Component {
   state = {
     name: '',
     number: '',
-    id: shortid.generate(),
+    id: '',
   };
 
   handleChangeUser = ev => {
@@ -17,6 +17,8 @@ class Form extends Component {
 
   handleAddUser = e => {
     e.preventDefault();
+
+    this.setState(prevState => ({ id: prevState.id = shortid.generate() }));
 
     this.props.onSubmit(this.state);
     this.handleCleanUser();

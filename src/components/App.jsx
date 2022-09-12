@@ -10,13 +10,27 @@ export class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const list = localStorage.getItem('contacts');
+
+    if (list) {
+      this.setState({ contacts: JSON.parse(list) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts.length !== prevState.contacts.length) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   handlerSubmitUser = data => {
     this.setState(prevState => ({ contacts: [...prevState.contacts, data] }));
   };
 
-  handleDeleteUser = index => {
+  handleDeleteUser = id => {
     this.setState(prevState => ({
-      contacts: prevState.contacts.filter((user, idx) => index !== idx),
+      contacts: prevState.contacts.filter(user => id !== user.id),
     }));
   };
 
@@ -31,6 +45,8 @@ export class App extends Component {
       user.name.toLowerCase().includes(filterNormalize)
     );
   };
+
+
 
   render() {
     const { contacts, filter } = this.state;

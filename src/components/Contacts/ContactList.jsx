@@ -10,7 +10,7 @@ const ContactList = ({ contacts, onDelete }) => {
   return (
     <div>
       <ul className={s.list}>
-        {contacts.map(({ name, number }, index) => (
+        {contacts.map(({ name, number, id }) => (
           <li className={s.item} key={shortid.generate()}>
             <p className={s.text}>
               {name} <span className={s.tel}>Tel: {number}</span>{' '}
@@ -18,7 +18,7 @@ const ContactList = ({ contacts, onDelete }) => {
             <button
               className={s.btn}
               type="button"
-              onClick={() => onDelete(index)}
+              onClick={() => onDelete(id)}
             >
               Delete
             </button>
