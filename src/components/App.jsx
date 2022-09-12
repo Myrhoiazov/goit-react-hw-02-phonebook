@@ -26,9 +26,9 @@ export class App extends Component {
 
   handlerSubmitUser = data => {
     const { contacts } = this.state;
-    const newUser = contacts.some(user => user.name === data.name);
+    const hasUserContacts = contacts.some(user => user.name === data.name);
 
-    if(newUser){
+    if(hasUserContacts){
       alert(`${data.name} is already in contacts`)
       return
     }

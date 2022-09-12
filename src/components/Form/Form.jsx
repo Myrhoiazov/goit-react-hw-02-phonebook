@@ -18,7 +18,7 @@ class Form extends Component {
   handleAddUser = e => {
     e.preventDefault();
 
-    this.setState(prevState => ({ id: prevState.id = shortid.generate() }));
+    this.setState(({ id: shortid.generate() }));
 
     this.props.onSubmit(this.state);
     this.handleCleanUser();

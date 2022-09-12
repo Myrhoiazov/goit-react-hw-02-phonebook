@@ -1,6 +1,5 @@
 import s from '../Contacts/ContactList.module.css';
 import PropTypes from 'prop-types';
-const shortid = require('shortid');
 
 const ContactList = ({ contacts, onDelete }) => {
   if (contacts.length === 0) {
@@ -11,7 +10,7 @@ const ContactList = ({ contacts, onDelete }) => {
     <div>
       <ul className={s.list}>
         {contacts.map(({ name, number, id }) => (
-          <li className={s.item} key={shortid.generate()}>
+          <li className={s.item} key={id}>
             <p className={s.text}>
               {name} <span className={s.tel}>Tel: {number}</span>{' '}
             </p>
