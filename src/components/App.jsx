@@ -25,6 +25,14 @@ export class App extends Component {
   }
 
   handlerSubmitUser = data => {
+    const { contacts } = this.state;
+    const newUser = contacts.some(user => user.name === data.name);
+
+    if(newUser){
+      alert(`${data.name} is already in contacts`)
+      return
+    }
+
     this.setState(prevState => ({ contacts: [...prevState.contacts, data] }));
   };
 
@@ -45,8 +53,6 @@ export class App extends Component {
       user.name.toLowerCase().includes(filterNormalize)
     );
   };
-
-
 
   render() {
     const { contacts, filter } = this.state;
