@@ -7,7 +7,6 @@ class Form extends Component {
   state = {
     name: '',
     number: '',
-    id: '',
   };
 
   handleChangeUser = ev => {
